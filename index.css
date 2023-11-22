@@ -20,6 +20,10 @@ input {
   margin: 10px 0px;
 }
 
+input:focus {
+  outline: #d8b13c solid;
+}
+
 button {
   color: #FDFDFD;
   background-color: #d8b13c;

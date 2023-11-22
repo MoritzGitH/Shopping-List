@@ -14,13 +14,23 @@ const addToCartBtn = document.getElementById('add-button')
 const shoppingList = document.getElementById('shoppingList')
 
 addToCartBtn.addEventListener('click', () => {
+ addToList()
+})
+  
+inputFieldEl.addEventListener('keypress', e => {
+  if (e.key === 'Enter') {
+    addToList()
+  }
+})
+
+function addToList () {
   const inputValue = inputFieldEl.value
 
   push(cartInDB, inputValue)
 
   clearInputField()
-})
-  
+}
+
 function clearInputField () {
   inputFieldEl.value = ``
 }
@@ -53,7 +63,7 @@ onValue(cartInDB, function(snapshot) {
     displayShoppingList(itemValue, itemID)
   })
   } else {
-    shoppingList.innerHTML = "No items here ... yet"
+    shoppingList.innerHTML = "Noch keine Lebensmittel..."
   }
 
   
